@@ -68,6 +68,7 @@ module Rack
          hiddenCustomFields: @config.snapshot_hidden_custom_fields.join(','),
          cspNonce: content_security_policy_nonce,
          hotwireTurboDriveSupport: @config.enable_hotwire_turbo_drive_support,
+         requestUrlPattern: @config.request_url_pattern,
         }
 
         if current && current.page_struct

@@ -62,6 +62,7 @@ module Rack
           @snapshots_redact_sql_queries = true
           @snapshots_transport_gzip_requests = false
           @enable_hotwire_turbo_drive_support = false
+          @request_url_pattern = nil
 
           @profile_parameter = "pp"
 
@@ -82,7 +83,7 @@ module Rack
       # ui accessors
       attr_accessor :collapse_results, :max_traces_to_show, :position,
         :show_children, :show_controls, :show_trivial, :show_total_sql_count,
-        :start_hidden, :toggle_shortcut, :html_container
+        :start_hidden, :toggle_shortcut, :html_container, :request_url_pattern
 
       # snapshot related config
       attr_accessor :snapshot_every_n_requests, :max_snapshots_per_group,
