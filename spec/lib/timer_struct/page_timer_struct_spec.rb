@@ -56,4 +56,21 @@ describe Rack::MiniProfiler::TimerStruct::Page do
       expect(result["has_flamegraph"]).to eq(true)
     end
   end
+
+  describe '#request_url' do
+    let(:env) do
+      {
+        'rack.url_scheme' => 'https',
+        'SERVER_NAME' => 'app.local',
+        'SERVER_PORT' => '3000',
+        'PATH_INFO' => '/api/v1/hello',
+        'QUERY_STRING' => 'foo=bar',
+      }
+    end
+
+    it 'builds request URL' do
+      page = described_class.new(env)
+      expect(page.request_url).to eq('https://app.local:3000/api/v1/hello?foo=bar')
+    end
+  end
 end

@@ -92,12 +92,18 @@ module Rack
           )
           self[:request_method] = env['REQUEST_METHOD']
           self[:request_path] = env['PATH_INFO']
-          name = "#{env['REQUEST_METHOD']} http://#{env['SERVER_NAME']}:#{env['SERVER_PORT']}#{env['SCRIPT_NAME']}#{page_name(env)}"
+          request_url = "#{env['rack.url_scheme']}://#{env['SERVER_NAME']}:#{env['SERVER_PORT']}#{env['SCRIPT_NAME']}#{page_name(env)}"
+          self[:request_url] = request_url
+          name = "#{env['REQUEST_METHOD']} #{request_url}"
           self[:root] = TimerStruct::Request.createRoot(name, self)
         end
 
         def name
           @attributes[:name]
+        end
+
+        def request_url
+          @attributes[:request_url]
         end
 
         def page_name(env)
