@@ -185,7 +185,8 @@
       margin-bottom: 5px; }
     .profiler-result .profiler-queries .profiler-gap-info,
     .profiler-result .profiler-queries .profiler-gap-info td {
-      background-color: #ccc; }
+      background-color: #ccc;
+      word-break: break-all; }
     .profiler-result .profiler-queries .profiler-gap-info .profiler-unit {
       color: #777; }
     .profiler-result .profiler-queries .profiler-gap-info .profiler-info {

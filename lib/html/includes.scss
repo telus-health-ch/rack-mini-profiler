@@ -237,6 +237,7 @@ $zindex: 2147483640; // near 32bit max 2147483647
     .profiler-gap-info,
     .profiler-gap-info td {
       background-color: #ccc;
+      word-break: break-all;
     }
     .profiler-gap-info {
       .profiler-unit {

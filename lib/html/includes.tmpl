@@ -22,7 +22,12 @@
     <div class="profiler-popup">
       <div class="profiler-info">
         <span class="profiler-name">
-          {{= it.name}} <span class="profiler-overall-duration">({{= MiniProfiler.formatDuration(it.duration_milliseconds)}} ms)</span>
+          {{? it.name.length >= 40 }}
+            {{= it.name.substring(0,37) + "..." }}
+          {{??}}
+            {{= it.name}}
+          {{?}}
+          <span class="profiler-overall-duration">({{= MiniProfiler.formatDuration(it.duration_milliseconds)}} ms)</span>
         </span>
         <span class="profiler-server-time">{{= it.machine_name}} on {{= MiniProfiler.renderDate(it.started_formatted)}}</span>
       </div>
